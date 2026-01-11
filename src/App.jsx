@@ -16,7 +16,7 @@ function App() {
       <Contact />
 
       <footer style={{ textAlign: 'center', padding: '20px', background: '#000', color: 'var(--text-secondary)' }}>
-        <p>&copy; {new Date().getFullYear()} Satheeshvaran L. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Siva Kumaran M. All rights reserved.</p>
       </footer>
     </div>
   );

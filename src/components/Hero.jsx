@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
 
+import profilePic from '../assets/profile.jpg';
+
 const Hero = () => {
     return (
         <section id="home" className="section" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', paddingTop: '80px' }}>
@@ -20,7 +22,7 @@ const Hero = () => {
                         transition={{ duration: 0.5, delay: 0.1 }}
                         style={{ fontSize: '4rem', fontWeight: 700, marginBottom: '10px', lineHeight: 1.1 }}
                     >
-                        <span className="gradient-text">Satheeshvaran</span>
+                        <span className="gradient-text">Siva Kumaran</span>
                     </motion.h1>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
@@ -81,7 +83,7 @@ const Hero = () => {
                             overflow: 'hidden'
                         }}>
                             <img
-                                src="/profile.jpg"
+                                src={profilePic}
                                 alt="Profile"
                                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                             />

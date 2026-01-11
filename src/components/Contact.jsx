@@ -82,7 +82,7 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <h4 style={{ fontSize: '1.1rem' }}>Email</h4>
-                                    <p style={{ color: 'var(--text-secondary)' }}>contact : satheeshvaransk@gmail.com</p>
+                                    <p style={{ color: 'var(--text-secondary)' }}>contact : sivakumaran2417@gmail.com</p>
                                 </div>
                             </div>
 

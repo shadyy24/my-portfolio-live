@@ -40,7 +40,7 @@ const About = () => {
                                 <h3 style={{ fontSize: '1.5rem', color: 'var(--primary-color)', marginBottom: '15px' }}>Education</h3>
                                 <div style={{ marginBottom: '20px' }}>
                                     <h4 style={{ fontSize: '1.2rem', color: '#fff' }}>Bachelor of Engineering</h4>
-                                    <p style={{ color: 'var(--text-secondary)' }}>Sri Krishna College of Technology</p>
+                                    <p style={{ color: 'var(--text-secondary)' }}>Bannari Amman Institute of Technology</p>
                                     <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>(Artificial Intelligence and Machine Learning)</p>
                                     <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>2023 - 2026</p>
                                 </div>
