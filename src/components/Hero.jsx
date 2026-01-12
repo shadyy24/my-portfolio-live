@@ -1,97 +1,196 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
-
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import profilePic from '../assets/profile.jpg';
 
 const Hero = () => {
     return (
-        <section id="home" className="section" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', paddingTop: '80px' }}>
-            <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' }}>
-                <div style={{ flex: 1, minWidth: '300px' }}>
-                    <motion.h3
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        style={{ fontSize: '1.5rem', marginBottom: '10px', color: 'var(--primary-color)' }}
+        <section id="home" className="section" style={{
+            minHeight: '100vh',
+            display: 'flex',
+            alignItems: 'center',
+            position: 'relative',
+            overflow: 'hidden'
+        }}>
+            {/* Background Elements */}
+            <div style={{
+                position: 'absolute',
+                top: '-20%',
+                right: '-10%',
+                width: '600px',
+                height: '600px',
+                background: 'radial-gradient(circle, rgba(204,255,0,0.15) 0%, transparent 70%)',
+                filter: 'blur(80px)',
+                zIndex: -1
+            }} />
+
+            <div className="container" style={{
+                display: 'grid',
+                gridTemplateColumns: '1.2fr 0.8fr',
+                gap: '50px',
+                alignItems: 'center',
+                width: '100%'
+            }}>
+                <div style={{ position: 'relative', zIndex: 1 }}>
+                    <motion.div
+                        initial={{ opacity: 0, x: -50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6 }}
+                        style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px' }}
                     >
-                        Heyyy , I'm
-                    </motion.h3>
+                        <span style={{
+                            height: '2px',
+                            width: '40px',
+                            background: 'var(--primary-color)'
+                        }}></span>
+                        <span style={{
+                            color: 'var(--primary-color)',
+                            fontWeight: '600',
+                            textTransform: 'uppercase'
+                        }}>
+                            Welcome to my Portfolio!
+                        </span>
+                    </motion.div>
+
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.1 }}
-                        style={{ fontSize: '4rem', fontWeight: 700, marginBottom: '10px', lineHeight: 1.1 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        style={{
+                            fontSize: 'clamp(4rem, 6vw, 7rem)',
+                            fontWeight: 800,
+                            lineHeight: 0.9,
+                            marginBottom: '20px',
+                            letterSpacing: '-0.04em'
+                        }}
                     >
-                        <span className="gradient-text">Siva Kumaran</span>
+                        I'M <br />
+                        <span className="gradient-text" style={{
+                            WebkitTextStroke: '2px transparent'
+                        }}>SIVA</span> <br />
+                        KUMARAN
                     </motion.h1>
+
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        style={{ fontSize: '2.5rem', marginBottom: '20px', color: 'var(--text-secondary)' }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                        style={{
+                            fontSize: '2rem',
+                            marginBottom: '30px',
+                            color: 'var(--text-secondary)',
+                            fontWeight: 400
+                        }}
                     >
-                        Cloud & DevOps Engineer
+                        Cloud & <span style={{ color: '#fff' }}>DevOps Engineer</span>
                     </motion.h2>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.3 }}
-                        style={{ fontSize: '1.1rem', maxWidth: '500px', marginBottom: '30px', color: 'var(--text-secondary)' }}
-                    >
-                        Aspiring Cloud and DevOps Engineer with a strong interest in building scalable, secure, and automated cloud solutions.
-                    </motion.p>
+
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.4 }}
-                        style={{ display: 'flex', gap: '15px' }}
+                        transition={{ duration: 0.6, delay: 0.6 }}
+                        style={{ display: 'flex', gap: '20px', alignItems: 'center' }}
                     >
                         <Link to="projects" smooth={true} duration={500} offset={-70}>
-                            <button className="btn btn-primary">View Work</button>
+                            <button className="btn btn-primary">Projects</button>
                         </Link>
                         <Link to="contact" smooth={true} duration={500} offset={-70}>
-                            <button className="btn btn-outline">Contact Me</button>
+                            <button className="btn btn-outline">Contact</button>
                         </Link>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.8, delay: 1 }}
+                        style={{ display: 'flex', gap: '20px', marginTop: '50px' }}
+                    >
+                        {[
+                            { Icon: FaGithub, url: 'https://github.com/shadyy24' },
+                            { Icon: FaLinkedin, url: 'https://www.linkedin.com/in/siva-kumaran-984984332/' },
+                            { Icon: FaTwitter, url: '#' }
+                        ].map(({ Icon, url }, index) => (
+                            <a key={index} href={url} target="_blank" rel="noopener noreferrer" style={{
+                                color: 'var(--text-secondary)',
+                                fontSize: '1.5rem',
+                                transition: 'color 0.3s'
+                            }} onMouseOver={e => e.currentTarget.style.color = 'var(--primary-color)'}
+                                onMouseOut={e => e.currentTarget.style.color = 'var(--text-secondary)'}>
+                                <Icon />
+                            </a>
+                        ))}
                     </motion.div>
                 </div>
 
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    style={{ flex: 1, display: 'flex', justifyContent: 'center', minWidth: '300px', marginTop: '40px' }}
-                >
-                    <div style={{
-                        width: '350px',
-                        height: '350px',
-                        borderRadius: '50%',
-                        background: 'linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color))',
+                    initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+                    animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                    style={{
                         position: 'relative',
                         display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        boxShadow: '0 0 30px rgba(56, 189, 248, 0.3)'
+                        justifyContent: 'center'
+                    }}
+                >
+                    <div style={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        width: '120%',
+                        height: '120%',
+                        border: '2px solid var(--primary-color)',
+                        borderRadius: '50%',
+                        opacity: 0.2,
+                        filter: 'blur(10px)'
+                    }}></div>
+
+                    <div style={{
+                        width: '400px',
+                        height: '500px',
+                        borderRadius: '200px',
+                        overflow: 'hidden',
+                        position: 'relative',
+                        boxShadow: '20px 20px 60px rgba(0,0,0,0.5)',
+                        border: '1px solid rgba(255,255,255,0.1)'
                     }}>
                         <div style={{
-                            width: '340px',
-                            height: '340px',
-                            borderRadius: '50%',
-                            background: 'var(--bg-color)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            overflow: 'hidden'
-                        }}>
-                            <img
-                                src={profilePic}
-                                alt="Profile"
-                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                            />
-                        </div>
+                            position: 'absolute',
+                            inset: 0,
+                            background: 'linear-gradient(to bottom, transparent 60%, var(--bg-color))',
+                            zIndex: 2
+                        }}></div>
+
+                        <img
+                            src={profilePic}
+                            alt="Profile"
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover'
+                            }}
+                        />
                     </div>
                 </motion.div>
             </div>
-        </section>
+
+            <style>{`
+                @media (max-width: 968px) {
+                    .container {
+                        grid-template-columns: 1fr !important;
+                        text-align: center;
+                    }
+                    .container > div:first-child {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                    }
+                    h1 {
+                        font-size: 3.5rem !important;
+                    }
+                }
+            `}</style>
+        </section >
     );
 };
 
